@@ -117,7 +117,7 @@ namespace SistemaLojaMvcApi1.Controllers
             }
             catch (Exception)
             {
-                throw;
+                //throw;
             }
             
             return RedirectToAction("Index");
