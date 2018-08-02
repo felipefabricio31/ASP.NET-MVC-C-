@@ -33,5 +33,7 @@ namespace SistemaLojaMvcApi1.Models
         }
 
         public System.Data.Entity.DbSet<SistemaLojaMvcApi1.Models.Fornecedor> Fornecedors { get; set; }
+
+        public System.Data.Entity.DbSet<SistemaLojaMvcApi1.Models.Customizar> Customizars { get; set; }
     }
 }

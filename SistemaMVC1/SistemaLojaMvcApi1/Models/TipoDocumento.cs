@@ -16,5 +16,7 @@ namespace SistemaLojaMvcApi1.Models
 
         //Relacionamento de Tabelas
         public virtual ICollection<Funcionario> Funcionaios { get; set; }
+
+        public virtual ICollection<Customizar> Customizacao { get; set; }
     }
 }
