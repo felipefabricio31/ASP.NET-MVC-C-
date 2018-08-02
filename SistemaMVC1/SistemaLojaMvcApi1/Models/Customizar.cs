@@ -33,7 +33,14 @@ namespace SistemaLojaMvcApi1.Models
         [Display(Name = "Documento")]
         public string Documento { get; set; }
 
+        [Display(Name = "Nome Completo")]
+        public string NomeCompleto { get { return string.Format("{0} {1}", Nome, Sobrenome); } }
+
+
         public int TipoDocumentoId { get; set; }
         public virtual TipoDocumento TipoDocumento { get; set; }
+
+        //ICollection, porque vamos receber informacao
+        public virtual ICollection<OrdemStatus> Ordem { get; set; }
     }
 }

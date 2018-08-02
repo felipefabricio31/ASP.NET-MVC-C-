@@ -15,6 +15,7 @@ namespace SistemaLojaMvcApi1.Models
         public string Descricao { get; set; }
 
         [Display(Name = "Preço")]
+        [DataType(DataType.Currency)]
         [Required(ErrorMessage = "Você precisa inserir o {0}")]
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal Preco { get; set; }
@@ -32,11 +33,11 @@ namespace SistemaLojaMvcApi1.Models
         [Display(Name = "Comentário")]
         [DataType(DataType.MultilineText)]
         public string Comentario { get; set; }
-
-        //Migration Automatic - Aula 25
-        //public string teste { get; set; }
-
+        
         //Aula38
         public virtual ICollection<FornecedorProduto> FornecedorProduto { get; set; }
+
+        //ICollection, porque vamos receber informacao
+        public virtual ICollection<OrdemDetalhe> OrdensDetalhes { get; set; }
     }
 }

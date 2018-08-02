@@ -39,7 +39,11 @@ namespace SistemaLojaMvcApi1.Controllers
         // GET: Pessoa/Create
         public ActionResult Create()
         {
-            ViewBag.TipoDocumentoId = new SelectList(db.TipoDocumentoes, "TipoDocumentoId", "Descricao");
+            var lista =  db.TipoDocumentoes.ToList();
+            //Campo para inicar no formulario a opção Selecione....
+            lista.Add(new TipoDocumento { TipoDocumentoId = 0, Descricao = "[Selecione...]" });
+            lista = lista.OrderBy(c => c.Descricao).ToList();
+            ViewBag.TipoDocumentoId = new SelectList(lista, "TipoDocumentoId", "Descricao");
             return View();
         }
 
@@ -53,7 +57,16 @@ namespace SistemaLojaMvcApi1.Controllers
             if (ModelState.IsValid)
             {
                 db.Customizars.Add(customizar);
-                db.SaveChanges();
+                //Necessário Tratamento
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
+                
                 return RedirectToAction("Index");
             }
 

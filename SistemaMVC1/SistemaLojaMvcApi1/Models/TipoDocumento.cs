@@ -9,6 +9,7 @@ namespace SistemaLojaMvcApi1.Models
     public class TipoDocumento
     {
         [Key]
+        [Display(Name = "Tipo de Documento")]
         public int TipoDocumentoId { get; set; }
 
         [Display(Name = "Descrição")]
