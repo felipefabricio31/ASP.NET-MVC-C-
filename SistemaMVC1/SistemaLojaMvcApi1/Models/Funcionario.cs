@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -45,6 +46,7 @@ namespace SistemaLojaMvcApi1.Models
         //[DataType(DataType.Date)]
         public DateTime DataCadastro { get; set; }
 
+        [NotMapped]
         public int Idade { get { return DateTime.Now.Year - DataNascimento.Year; } }
 
         //Relacionamento de Tabela

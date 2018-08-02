@@ -208,10 +208,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProdutoesController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -289,11 +290,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Produtoes\Create.cshtml" />
-    <Content Include="Views\Produtoes\Delete.cshtml" />
-    <Content Include="Views\Produtoes\Details.cshtml" />
-    <Content Include="Views\Produtoes\Edit.cshtml" />
-    <Content Include="Views\Produtoes\Index.cshtml" />
     <Content Include="Views\TipoDocumento\Create.cshtml" />
     <Content Include="Views\TipoDocumento\Delete.cshtml" />
     <Content Include="Views\TipoDocumento\Details.cshtml" />
@@ -304,6 +300,16 @@
     <Content Include="Views\Funcionario\Details.cshtml" />
     <Content Include="Views\Funcionario\Edit.cshtml" />
     <Content Include="Views\Funcionario\Index.cshtml" />
+    <Content Include="Views\Produto\Create.cshtml" />
+    <Content Include="Views\Produto\Delete.cshtml" />
+    <Content Include="Views\Produto\Details.cshtml" />
+    <Content Include="Views\Produto\Edit.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\Fornecedor\Create.cshtml" />
+    <Content Include="Views\Fornecedor\Delete.cshtml" />
+    <Content Include="Views\Fornecedor\Details.cshtml" />
+    <Content Include="Views\Fornecedor\Edit.cshtml" />
+    <Content Include="Views\Fornecedor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SistemaLojaMvcApi1.Models.Produto>
 
 @{
-    ViewBag.Title = "Lista de Produtos";
+    ViewBag.Title = "Index";
 }
 
-<h2>Lista de Produtos</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Cadastrar Produto", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Comentario)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ProdutoId }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ProdutoId }) |
-            @Html.ActionLink("deletar", "Delete", new { id=item.ProdutoId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProdutoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProdutoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProdutoId })
         </td>
     </tr>
 }

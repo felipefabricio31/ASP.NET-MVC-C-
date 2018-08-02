@@ -1,10 +1,10 @@
 ﻿@model SistemaLojaMvcApi1.Models.Produto
 
 @{
-    ViewBag.Title = "Editar Produto";
+    ViewBag.Title = "Edit";
 }
 
-<h3>Editar Produto - @Html.DisplayFor(model => model.Descricao)</h3>
+<h2>Edit</h2>
 
 
 @using (Html.BeginForm())
@@ -59,14 +59,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Salvar" class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

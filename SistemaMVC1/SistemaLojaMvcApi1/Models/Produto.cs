@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SistemaLojaMvcApi1.Models
@@ -20,5 +21,8 @@ namespace SistemaLojaMvcApi1.Models
 
         //Migration Automatic - Aula 25
         //public string teste { get; set; }
+
+        //Aula38
+        public virtual ICollection<FornecedorProduto> FornecedorProduto { get; set; }
     }
 }
