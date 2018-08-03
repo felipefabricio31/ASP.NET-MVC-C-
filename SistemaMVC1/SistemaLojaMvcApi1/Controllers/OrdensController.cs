@@ -74,52 +74,53 @@ namespace SistemaLojaMvcApi1.Controllers
                 return View(ordemView);
             }
 
-            var ordem = new Ordem
+            using (var transaction = db.Database.BeginTransaction())
             {
-                CustomizarId = customizarId,
-                OrdemData = DateTime.Now,
-                OrdemStatus = OrdemStatus.Criada
-            };
-
-            db.Ordem.Add(ordem);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-            var ordemId = db.Ordem.ToList().Select(o => o.OrdemId).Max();
-
-            foreach (var item in ordemView.Produtos)
-            {
-                var ordemDetalhes = new OrdemDetalhe
-                {
-                    ProdutoId = item.ProdutoId,
-                    OrdemId = ordemId,
-                    Descricao = item.Descricao,
-                    Preco = item.Preco,
-                    Quantidade = item.Quantidade
-                };
-
                 try
                 {
-                    db.OrdemDetalhe.Add(ordemDetalhes);
+                    //Salvando uma ordem
+                    var ordem = new Ordem
+                    {
+                        CustomizarId = customizarId,
+                        OrdemData = DateTime.Now,
+                        OrdemStatus = OrdemStatus.Criada
+                    };
+
+                    db.Ordem.Add(ordem);
                     db.SaveChanges();
+                    
+                    //Salvando ordem detalhes
+                    var ordemId = db.Ordem.ToList().Select(o => o.OrdemId).Max();
+
+                    foreach (var item in ordemView.Produtos)
+                    {
+                        var ordemDetalhes = new OrdemDetalhe
+                        {
+                            ProdutoId = item.ProdutoId,
+                            OrdemId = ordemId,
+                            Descricao = item.Descricao,
+                            Preco = item.Preco,
+                            Quantidade = item.Quantidade
+                        };
+
+                        db.OrdemDetalhe.Add(ordemDetalhes);
+                        db.SaveChanges();
+                    }
+
+                    //Commit para acetiar a transação
+                    transaction.Commit();
+                    ViewBag.Sucesso = string.Format("Ordem: {0}, foi salva com sucesso.", ordemId);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
 
-                    throw;
+                    transaction.Rollback();
+                    ViewBag.Erro = "Erro " + ex.ToString();
                 }
-                
             }
 
-            ViewBag.Sucesso = string.Format("Ordem: {0}, foi salva com sucesso.", ordemId);
+
+            
 
             var lista2 = db.Customizars.ToList();
             lista2.Add(new Customizar { CustomizarId = 0, Nome = "[Selecione...]" });
@@ -202,7 +203,7 @@ namespace SistemaLojaMvcApi1.Controllers
 
             var listac = db.Customizars.ToList();
             //Campo para inicar no formulario a opção Selecione....
-            listac.Add(new Customizar { CustomizarId = 0, Nome = "[Selecione um cliente...]" });
+            //listac.Add(new Customizar { CustomizarId = 0, Nome = "[Selecione um cliente...]" });
             listac = listac.OrderBy(c => c.NomeCompleto).ToList();
             ViewBag.CustomizarId = new SelectList(listac, "CustomizarId", "NomeCompleto");
 
