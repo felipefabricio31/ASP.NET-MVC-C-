@@ -8,8 +8,8 @@ namespace SistemaLojaMvcApi1.Models
     //Guarda uma lista
     public enum OrdemStatus
     {
-        //Criada,
-        //Em Progresso,
-        //Despachada
+        Criada,
+        EmProgresso,
+        Despachada
     }
 }

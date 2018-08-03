@@ -324,6 +324,7 @@
     <Content Include="Views\Pessoa\Edit.cshtml" />
     <Content Include="Views\Pessoa\Index.cshtml" />
     <Content Include="Views\Ordens\NovaOrdem.cshtml" />
+    <Content Include="Views\Ordens\AddProduto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

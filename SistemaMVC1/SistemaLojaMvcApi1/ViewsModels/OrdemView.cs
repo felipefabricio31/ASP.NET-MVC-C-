@@ -1,8 +1,5 @@
 ﻿using SistemaLojaMvcApi1.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SistemaLojaMvcApi1.ViewsModels
 {
@@ -12,6 +9,9 @@ namespace SistemaLojaMvcApi1.ViewsModels
 
         public Customizar Customizar { get; set; }
 
-        public List<ProdutoOrdem> ProdutoOrdem { get; set; }
+        public ProdutoOrdem Produto { get; set; }
+
+        public List<ProdutoOrdem> Produtos { get; set; }
+
     }
 }
